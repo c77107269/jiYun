@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<pre>
+			2、函数的三种方式
+				声明式函数	function fn() {}
+				匿名函数  	let fun = function() {}
+				构造函数     let fn = new Function
+			3、构造函数和普通函数的区别
+				1、用new调用构造函数，函数内部会发生如下变化：
+					创建一个this变量，该变量指向一个空对象。并且该对象继承函数的原型；
+					属性和方法被加入到this引用的对象中；
+					隐式返回this对象（如果没有显性返回其他对象）
+					简单的说 用new调用构造函数，最大特点为，this对象指向构造函数生成的对象
+				
+				2、如果直接调用函数，那么，this对象指向window，并且，不会默认返回任何对象（除非显性声明返回值）
+		</pre>
+		<script>
+			// 用new调用构造函数，最大特点为，this对象指向构造函数生成的对象
+			
+			// 构造函数
+			// function P() {
+			// 	this.name = '变量'
+			// }
+			// P.prototype.fn = function () {
+			// 	console.log('构造函数:', this)
+			// }
+			// var obj = new P()
+			// console.log(obj)
+			// obj.fn()
+			
+			// 普通函数
+			// function fn() {
+			// 	console.log('-----------', this)
+			// }
+			// fn()
+		</script>
+	</body>
+</html>

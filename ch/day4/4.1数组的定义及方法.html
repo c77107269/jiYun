@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<pre>
+		创建数组的方式有两种：new Array()、字面量创建数组
+		1、new Array()创建数组
+			var arr = new Array(1,2,3,4,4,5,5,6)
+			var arr1 = new Array(10) // 当只添加一个元素时，会将该元素作为长度
+		2、字面量创建数组
+			var arr3 = []
+			arr3[0] = '1'
+			arr3[1] = '1'
+			arr3[2] = '1'
+			var arr4 = [1,2,3,4]
+		3、数组的length属性
+		4、数组的in操作符
+		5、数组遍历：
+			1、for
+			2、forEach
+			3、for..in
+			4、map
+		6、数组的方法
+			join() // 将数组转换成字符串，参数是字符串的连接字符
+			push()和pop()  // 数组尾部添加、删除
+			shift()和unshif() // 数组头部添加及删除
+			sort()和reverse() // 数组正序和倒叙
+			concat() // 创建一个新数组，将参数添加到原数组的末尾并返回
+			slice() // 返回从原数组中指定开始下标到结束下标之间的项组成的新数组
+			splice() // 删除、插入和替换
+			indexOf和lastIndexOf() // 查找数组中的某一项，找不到返回-1
+			forEach() // 数组遍历
+			map() // 指“映射”，对数组中的每一项运行给定函数，返回每次函数调用的结果组成的数组
+			filter() // “过滤”功能，数组中的每一项运行给定函数，返回满足过滤条件组成的数组
+			every() // 判断数组中每一项都是否满足条件，只有所有项都满足条件，才会返回true
+			some() // 判断数组中是否存在满足条件的项，只要有一项满足条件，就会返回true
+		7、数组去重
+			1、利用ES6 set方法去重
+				function fetchData(arr) {
+					return Array.form(new set(arr))
+				}
+				var arr = [1,2,3,3,12,5,6,7]
+				console.log(fetchData(arr))
+			2、使用indexOf去重
+				function unique(arr) {
+					if (!Array.isArray(arr)) {
+						console.log('type error!')
+						return
+					}
+					var newArr = []
+				<!-- 	for (var i = 0; i < arr.length; i++) {
+						if (newArr.indexOf(arr[i]) === -1) {
+							newArr.push(arr[i])
+						}
+					}
+					return newArr -->
+				}
+		8、冒泡排序
+			function sort(element){
+				for(var i = 0;i<element.length-1;i++) {
+					console.log("i="+element[i])
+					for(var j = 0;j<element.length-i-1;j++){
+						console.log("j="+element[j]);
+						console.log("j+1="+element[j+1]);
+						if(element[j]>element[j+1]){
+							//把大的数字放到后面
+							var swap = element[j];
+							element[j] = element[j+1];
+							element[j+1] = swap;
+						}
+					}
+					console.log(element);
+				}
+			}
+			var element = [3,5,1,2,7,8,4,5,3,4];
+			//console.log("before:"+element);[3,5,1,2,7,8,4,5,3,4];
+			sort(element);
+	</pre>
+	<script type="text/javascript">
+		// slice事例
+		var arr = [1,3,5,7,9,11];
+		var arrCopy = arr.slice(3);
+		var arrCopy2 = arr.slice(1,4);
+		var arrCopy3 = arr.slice(1,-2);
+		var arrCopy4 = arr.slice(-4,-1);
+		console.log(arrCopy); 　　　　　　　　　　　 //[3, 5, 7, 9, 11]只设置了一个参数，也就是起始下标为1，所以返回的数组为下标1（包括下标1）开始到数组最后。 
+		console.log(arrCopy2); 　　　　　　　　　　　//[3, 5, 7]设置了两个参数，返回起始下标（包括1）开始到终止下标（不包括4）的子数组
+		console.log(arrCopy3); 　　　　　　　　　　　//[3, 5, 7]设置了两个参数，终止下标为负数，当出现负数时，将负数加上数组长度的值（6）来替换该位置的数，因此就是从1开始到4（不包括）的子数组
+		console.log(arrCopy4); 　　　　　　　　　　　//[5, 7, 9]中两个参数都是负数，所以都加上数组长度6转换成正数，因此相当于slice(2,5)
+		
+		// splice示例
+		// 删除
+		var spliceArr = [1,2,3,4,5,6,6,7]
+		spliceArr.splice(1,2) // 指定两个参数：第一个参数是初始位置，第二个参数是要删除的个数
+		console.log(spliceArr)
+		spliceArr.splice(0,0,'我替换了3','我也替换了3')
+		console.log(spliceArr) // 指定最少三个参数：第一个参数是初始位置，第二个参数是要删除的个数，第三个参数及后续的参数都是要插入的内容
+		
+		// indexOf示例
+		// indexOf:接收两个参数：要查找的项和（可选的）表示查找起点位置的索引。其中， 从数组的开头（位置 0）开始向后查找,
+		// lastIndexOf：接收两个参数：要查找的项和（可选的）表示查找起点位置的索引。其中， 从数组的末尾开始向前查找
+		
+		// map示例
+		var mapArr = [1, 2, 3, 4, 5];
+		var mapArr2 = mapArr.map(function(item){
+			return item*item
+		})
+		console.log(mapArr2)
+		
+		// filter示例
+		var filterArr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+		var filterArr2 = filterArr.filter(function(item) {
+			return item >= 8
+		});
+		console.log(filterArr2)
+		
+		// every示例
+		var everyArr = [1, 2, 3, 4, 5];
+		var everyArr2 = everyArr.every(function(item) {
+			return item < 10
+		})
+		console.log(everyArr2)
+		var everyArr3 = everyArr.every(function(item) {
+			return item < 3
+		})
+		console.log(everyArr3)
+		
+		// some示例
+		var someArr = [1, 2, 3, 4, 5];
+		var someArr2 = someArr.some(function(item) {
+			return item < 3
+		})
+		console.log(someArr2)
+		var someArr3 = someArr.some(function(item) {
+			return item < 1
+		})
+		console.log(someArr3)
+		
+		// indexOf数组去重
+		function unique(arr) {
+		    if (!Array.isArray(arr)) {
+		        console.log('type error!')
+		        return
+		    }
+		    var newArr = []
+			for (var i = 0; i < arr.length; i++) {
+				if (newArr.indexOf(arr[i]) === -1) {
+					newArr.push(arr[i])
+				}
+			}
+			return newArr
+		}
+		var arr1 = [1,2,3,4,5,5,5,6,7,8,9]
+		unique(arr1)
+	</script>
+</html>

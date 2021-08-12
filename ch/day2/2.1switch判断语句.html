@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"> -->
+    <title>day2 lesson2</title>
+    <style>
+        pre{
+            font-size: 20px;
+        }
+    </style>
+</head>
+<pre>
+    1、switch结构
+        switch(变量)
+        {
+            case 值0:
+            case 值1:
+            {//当此处内容较少时括号可以不加
+                变量 === 值1   时执行的语句;
+                break;
+            }
+            case 值2:
+            {
+                变量 === 值2   时执行的语句;
+                break;
+            }
+            case 值3:
+            {
+                变量 === 值3   时执行的语句;
+                break;
+            }
+            default:
+            {
+                变量不等于以上任何一个值时执行的语句;
+            }
+        }
+        其中break 用于结束当前分支，否则将一直向下执行，直到遇到下一个 break语句才跳出。
+
+        某些情况，可以不同的条件执行相同的结果
+        switch(x){
+            case 1:
+            case 2:
+            case 3:
+        }
+
+
+
+
+    2、switch()括号内的语句，和case：冒号后面的代码块部分，都可以使用表达式，
+        但是需要注意的是两者后面的表达式在运行结果时，采用的是'==='，也就是说，在比较时，不会发生类型的转换
+
+    
+</pre>
+<body>
+</body>
+<script>
+    // 1、如果没有写break，则不会停止，继续执行下一个case代码块
+    //     var x =1;
+    //     switch(x){
+    //         case 1:
+    //             console.log("x 等于1");
+    //         case 2:
+    //             console.log('x 等于2');
+    //         case 3:
+    //             console.log('x 等于3');
+    //         default:
+    //             console.log('x 的值为:',x)
+    //     }
+
+    //     var x =1;
+    //     switch(x){
+    //         case 1:
+    //             console.log("x 等于1");
+    //             break;
+    //         case 2:
+    //             console.log('x 等于2');
+    //             break;
+    //         case 3:
+    //             console.log('x 等于3');
+    //             break;
+    //         default:
+    //             console.log('x 的值为:',x)
+    //     }
+    
+    
+    // 不同条件执行相同结果
+    // var a = 10;
+    // switch(a){
+    //     case 1 + 9 :
+    //     case 2 + 8 :
+    //     case 3 + 7 :
+    //         console.log('a的值为10！');
+    //         break;
+    //     default:
+    //         console.log('a的值不是10!');
+    //         break;
+    // }
+
+
+
+
+
+    // 2、类型不会发生转换
+
+    var x = 1;
+    switch(x){
+        case true:
+            console.log("x 的类性值发生转换");
+            break;
+        default:
+            console.log('x 的类性值没有发生转换')
+    }
+
+
+</script>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"> -->
+    <title>day2 lesson3</title>
+</head>
+<style> 
+    pre{
+        font-size: 20px;
+    }
+</style>
+<body>
+    <h3>循环语句</h3>
+    <p>重复执行某个操作</p>
+    <pre>
+        1、while循环
+                while包括一个循环条件和一段代码块，只要条件为真，就不断执行
+                
+                while(条件){
+                    条件为真执行代码
+                }
+            死循环  该循环会一直不停的重复执行花括号中的语句
+                while(true){
+                    console.log('heelo world')
+                }
+        2、do while循环
+            do..while循环和while循环非常像，二者经常可以相互替代，但是do..while的特点是不管条件成不成立，都会执行一次。
+                do {
+                    // 循环体;
+                } while (条件);
+
+        3、for 循环  
+            for (初始化表达式; 条件; 递增表达式){
+                循环执行，循环体
+            }
+            初始化表达式：确定循环变量的初始值，只在循环开始时执行一次。
+            条件表达式：每轮循环开始时，都要执行这个条件表达式，只有值为真，才继续进行循环。
+            递增表达式：每轮循环的最后一个操作，通常用来递增循环变量。
+            
+            所有for循环，都可以改写成while循环
+        
+        4、for in 循环遍历对象的属性
+            for(var i in obj)
+
+    </pre>
+</body>
+<script>
+// 1、while 循环
+    // var i = 0;
+    // while(i<100){
+    //     console.log('i 当前的值为:',i);
+    //     i=i+1;
+    // }
+
+    // 计算1到99的和
+    // var i = 1,sum =0;
+    // while(i<100){
+    //     i++;
+    //     sum += i;
+    // }
+    // console.log(sum)
+// 2、do while循环
+    // var i =0;
+    // var sum = 0;
+    // do{
+    //     i++;
+    //     sum+=i;
+    // }while(i<100)
+    // console.log(sum)
+
+
+// 3、for循环
+    // var i =0; 初始表达式
+    // i<x       条件表达式
+    // i++       递增表达式
+    // var x=3;
+    // for(var i =0;i<x;i++){
+    //     console.log(i)
+    // }
+
+// 所有for循环，都可以改写成while循环
+    // var x = 3;
+    // var i = 0;
+    // while(i<x){
+    //     console.log(i);
+    //     i++;
+    // }
+    
+    // 死循环
+    // var i = 0;
+    // for(;;){
+    //     i++;
+    //     console.log("i:",i);
+    // }
+
+    // var i=0;
+    // for(;;){
+    //     console.log("i:",i);
+    //     i++;
+    //     if(i>5){
+    //         break;
+    //     }
+    // }
+    
+    //4、 for in 循环
+        var obj={
+            name:'张三',
+            age:'18',
+            sex:'男'
+        }
+        for(var i in obj){
+            console.log('i:',i)
+			console.log('obj['+i+']:',obj[i])
+        }
+</script>
+
+</html>

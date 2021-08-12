@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>day2 lesson1</title>
+</head>
+<style>
+    pre{
+        font-size: 20px;
+    }
+</style>
+<body>
+<pre>
+一、条件判断语句
+    1、js 在判断一个表达式的布尔值，然后根据布尔值的真伪，执行不同的语句，
+        布尔值  
+            true   真
+            false  伪
+                这里的布尔值，并不是寻常意义的布尔值，这里的布尔值往往由一个条件表达式产生，必须放在圆括号内，表示对表达式求值
+            if(布尔值){
+                执行语句
+            }
+        可以简写成 
+            if(布尔值)
+                执行语句 
+
+        双分支（既然有成功判断，就有失败）
+            if(布尔值){
+                console.log("满足条件")
+            }else{
+                console.log("不满足条件")
+            }
+        多条件判断(如果说，有多个条件进行判断)
+            else if(){
+
+            }
+    2、三元运算(三目运算)
+        条件 ? 条件成立时返回结果 : 条件不成立时返回结果;
+        ? 前面为条件表达式
+        : 左边为成立时返回的结果，右边为条件不成立时返回的结果
+    3、复合条件表达式判断
+        || 或   两者其中一项满足
+        && 与   两者都满足
+
+        if( 条件一 || 条件二){
+            
+        }
+        
+        if(条件1 && 条件2){
+
+        }
+    
+    4、嵌套条件判断
+        if(条件1){
+            if(条件2){
+                条件1与条件2都成立时，执行操作
+            }else{
+                条件1成立但是条件2不成立时执行操作
+            }
+        }else{
+            条件1不成立时执行操作
+        }
+
+
+</pre>
+</body>
+<script>
+    // 1、基础的条件判断
+        // var a = 1;
+        // var b = 2;
+        // if(a == b){
+        //     console.log("基础的条件判断")
+        // }else{
+        //     console.log("条件不成立")
+        // }
+        // var c = 1;
+        // if(a == c){
+        //     console.log('当前条件成立')
+        // }
+
+
+    // 2、三目运算
+        // var x = 2;
+        // x==2 ? console.log('成立') : console.log('不成立');
+    
+    // 3、复合条表达式判断
+        // var a = 10;
+        // if(a%2 ==1 || a%10 ==0){
+        //     console.log("条件成立")
+        // }
+
+        // if(a%2 ==0 && a%10 ==0){
+        //     console.log("条件成立")
+        // }else{
+        //     console.log('条件不满足')
+        // }
+
+    // 嵌套条件
+    // var age=26,score=40;
+	// if(age > 20){
+    //     if(score > 60){
+    //         document.write('合格，准许录入！')
+    //     }else{
+    //         document.write('成绩不合格，不予录用！')
+    //     }
+    // }else{
+    //     document.write('年龄不合格！不予录用！')
+    // }
+
+    // 例子
+        // 普通会员购买100元		打9折
+        // 会员购物			8折
+        // 会员购买200元 			7折
+        var userVip=prompt("是否是会员1是0不是");
+        var total=prompt("购买金额");
+        if(userVip == 1){
+            if(total>200 || total == 200){
+                total*=0.7;
+            }else{
+                total*=0.8;
+            }
+        }else if(total > 100){
+            total*=0.9
+        }else{
+            total = total
+        }
+        console.log('共需支付:',total)
+
+    
+    
+</script>
+
+</html>
